@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#54246e">
+<title>Los XV de Shaira Valentina</title>
+<style>
+:root{--lila:#eadcf7;--morado:#54246e;--oro:#d6ad55;--crema:#fffaf3;--texto:#382542}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--crema);color:var(--texto)}
+button,a{font:inherit}
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px 18px;background:radial-gradient(circle at top,#fff 0,#f5eafb 42%,#e2ccef 100%);position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"✦";position:absolute;color:#d6ad55;font-size:40px;opacity:.7}
+.hero:before{top:8%;left:10%}.hero:after{right:11%;bottom:10%}
+.cover{max-width:520px;width:100%;padding:36px 22px;border:1px solid var(--oro);outline:1px solid #d6ad5577;outline-offset:8px;border-radius:180px 180px 18px 18px;background:#fff9f2d9;box-shadow:0 18px 55px #5b2c6c20}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font:12px Arial,sans-serif;color:var(--morado)}
+h1{font-weight:400;color:var(--morado);font-size:clamp(2.6rem,10vw,4.8rem);line-height:1.02;margin:18px 0}
+.script{font-style:italic;color:#8c5ba2;font-size:1.3rem}
+.big15{font-size:4.5rem;color:var(--oro);line-height:1;margin:16px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:13px 22px;background:var(--morado);color:#fff;text-decoration:none;cursor:pointer;margin:8px 5px}
+.btn.alt{background:transparent;color:var(--morado);border:1px solid var(--morado)}
+main{max-width:850px;margin:auto;padding:26px 18px 60px}
+section{padding:40px 12px;text-align:center;border-bottom:1px solid #e8d9e9}
+h2{font-size:2rem;font-weight:400;color:var(--morado);margin:0 0 14px}
+p{line-height:1.7}
+.date{font-size:1.4rem;color:var(--morado)}
+.countdown{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.unit{min-width:68px;padding:13px 9px;background:#f0e4f6;border:1px solid #ddc4e8;border-radius:12px}
+.unit strong{display:block;font-size:1.7rem;color:var(--morado)}
+.small{font:13px Arial,sans-serif}
+.note{font:13px Arial,sans-serif;background:#fff4d8;padding:12px;border-radius:10px;text-align:left;line-height:1.5}
+footer{text-align:center;padding:30px 18px;color:#785e80}
+.hidden{display:none}
+@media(prefers-reduced-motion:no-preference){.cover{animation:appear 1.2s ease both}@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header class="hero" id="inicio">
+  <div class="cover">
+    <div class="eyebrow">Una noche mágica para celebrar</div>
+    <div class="big15">XV</div>
+    <div class="script">Mis quince años</div>
+    <h1>Shaira<br>Valentina</h1>
+    <p>Con mucha ilusión, quiero compartir contigo uno de los días más especiales de mi vida.</p>
+    <button class="btn" id="openInvite">Abrir invitación ✨</button>
+    <p class="small">5 de abril de 2027</p>
+  </div>
+</header>
+<main id="contenido" class="hidden">
+  <section>
+    <div class="eyebrow">Con amor, te invitamos</div>
+    <h2>¡Celebra conmigo!</h2>
+    <p>Hay momentos que se vuelven inolvidables cuando los compartimos con las personas que queremos. Me encantaría que me acompañaras en esta noche tan especial.</p>
+    <p class="date">Lunes, 5 de abril de 2027</p>
+    <div class="countdown" aria-label="Cuenta regresiva">
+      <div class="unit"><strong id="days">—</strong><span class="small">días</span></div>
+      <div class="unit"><strong id="hours">—</strong><span class="small">horas</span></div>
+      <div class="unit"><strong id="minutes">—</strong><span class="small">minutos</span></div>
+      <div class="unit"><strong id="seconds">—</strong><span class="small">segundos</span></div>
+    </div>
+  </section>
+  <section>
+    <h2>Detalles del evento</h2>
+    <p><strong>Hora:</strong> <span id="eventTime">Por confirmar</span></p>
+    <p><strong>Lugar:</strong> <span id="eventPlace">Por confirmar</span></p>
+    <a class="btn alt" id="mapButton" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+  </section>
+  <section>
+    <h2>Confirma tu asistencia</h2>
+    <p>Por favor, ayúdanos a organizar este día confirmando tu asistencia en el siguiente enlace.</p>
+    <a class="btn" id="rsvpButton" href="#" target="_blank" rel="noopener">Confirmar asistencia</a>
+    <p class="small">Si el botón aún no funciona, falta configurar el enlace del formulario.</p>
+  </section>
+  <section>
+    <h2>Una noche para recordar</h2>
+    <p>Gracias por ser parte de esta historia. ¡Te esperamos!</p>
+    <button class="btn alt" id="musicButton">▶ Activar música</button>
+    <p class="small">La música comienza solo cuando la persona toca el botón, porque los navegadores suelen bloquear la reproducción automática.</p>
+  </section>
+  <div class="note"><strong>Antes de publicar:</strong> reemplaza los enlaces de confirmación y ubicación, completa la hora y el lugar, y añade un archivo de música llamado <code>musica.mp3</code> si tienes permiso para usarlo. La página publicada será visible para cualquiera que tenga el enlace.</div>
+</main>
+<audio id="bgMusic" loop preload="none"><source src="musica.mp3" type="audio/mpeg"></audio>
+<footer>Con cariño, Shaira Valentina · Mis XV · 2027</footer>
+<script>
+/* PERSONALIZA ESTOS DATOS ANTES DE PUBLICAR */
+const EVENT_DATE = new Date('2027-04-05T18:00:00-05:00'); // Cambia la hora cuando esté confirmada
+const EVENT_TIME_TEXT = 'Hora por confirmar';
+const EVENT_PLACE_TEXT = 'Lugar por confirmar';
+const MAP_URL = '';  // Pega aquí el enlace de Google Maps
+const RSVP_URL = ''; // Pega aquí el enlace de Google Forms
+
+document.getElementById('eventTime').textContent = EVENT_TIME_TEXT;
+document.getElementById('eventPlace').textContent = EVENT_PLACE_TEXT;
+const mapButton = document.getElementById('mapButton');
+const rsvpButton = document.getElementById('rsvpButton');
+mapButton.href = MAP_URL || '#';
+rsvpButton.href = RSVP_URL || '#';
+mapButton.addEventListener('click', e => { if(!MAP_URL){e.preventDefault();alert('Primero agrega el enlace de Google Maps en el archivo index.html.');} });
+rsvpButton.addEventListener('click', e => { if(!RSVP_URL){e.preventDefault();alert('Primero agrega el enlace de Google Forms en el archivo index.html.');} });
+
+document.getElementById('openInvite').addEventListener('click', () => {
+  document.getElementById('contenido').classList.remove('hidden');
+  document.getElementById('contenido').scrollIntoView({behavior:'smooth'});
+});
+function updateCountdown(){
+  let diff = EVENT_DATE.getTime() - Date.now();
+  if(diff < 0) diff = 0;
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  document.getElementById('days').textContent=d;
+  document.getElementById('hours').textContent=h;
+  document.getElementById('minutes').textContent=m;
+  document.getElementById('seconds').textContent=s;
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+const music = document.getElementById('bgMusic');
+const musicButton = document.getElementById('musicButton');
+musicButton.addEventListener('click', async () => {
+  try {
+    if(music.paused){await music.play();musicButton.textContent='❚❚ Pausar música';}
+    else {music.pause();musicButton.textContent='▶ Activar música';}
+  } catch(e) { alert('Añade musica.mp3 al repositorio y vuelve a intentarlo.'); }
+});
+</script>
+</body>
+</html>
