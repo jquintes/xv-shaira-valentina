@@ -101,8 +101,13 @@ mapButton.addEventListener('click', e => { if(!MAP_URL){e.preventDefault();alert
 rsvpButton.addEventListener('click', e => {
   e.preventDefault();
 
-  document.getElementById('confirmacionXV')
-    .scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const seccion = document.getElementById('confirmacionXV');
+  seccion.classList.remove('hidden');
+
+  seccion.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 
   document.getElementById('tokenXV').focus();
 });
@@ -133,7 +138,7 @@ musicButton.addEventListener('click', async () => {
 });
 </script>
 
-<section id="confirmacionXV" style="max-width:520px;margin:30px auto;padding:24px;background:#fffaf3;border:1px solid #d6ad55;border-radius:20px;text-align:center;">
+<section id="confirmacionXV" class="hidden" style="max-width:520px auto;padding:24px;background:#fffaf3;border:1px solid #d6ad55;border-radius:20px;text-align:center;">
   <h2 style="color:#54246e;">Confirma tu asistencia</h2>
   <p>Nos encantaría compartir contigo este día tan especial.</p>
 
