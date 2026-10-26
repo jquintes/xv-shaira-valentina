@@ -409,6 +409,34 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
   text-underline-offset: 3px;
 }
 
+
+/* Padres y etiqueta de vestuario: misma identidad marfil, ciruela y dorado */
+.parents-cover {
+  margin: 14px auto 18px !important;
+  padding: 12px 10px;
+  max-width: 360px;
+  border-top: 1px solid rgba(185,154,98,.55);
+  border-bottom: 1px solid rgba(185,154,98,.55);
+  color: var(--ciruela-claro);
+}
+.parents-cover span {
+  display: block;
+  margin-bottom: 5px;
+  font: 10px/1.5 Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.parents-cover strong { display: block; color: var(--ciruela); font-size: 1rem; line-height: 1.5; font-weight: 500; }
+.attire-section .attire-intro { max-width: 560px; margin: 0 auto 22px; }
+.attire-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; max-width: 560px; margin: 22px auto; }
+.attire-item { padding: 20px 12px; border: 1px solid rgba(185,154,98,.55); border-radius: 18px; background: linear-gradient(145deg,#fffdf9,#f1e8f3); }
+.attire-icon { display: block; color: var(--dorado); font-size: 1.7rem; line-height: 1.2; }
+.attire-item h3 { margin: 8px 0 4px; color: var(--ciruela); font-size: 1.15rem; font-weight: 500; }
+.attire-item p { margin: 0; color: var(--texto); }
+.lilac-note { max-width: 620px; margin: 20px auto 10px; padding: 15px 16px; border-left: 3px solid var(--dorado); border-radius: 8px; background: rgba(238,228,241,.65); color: var(--ciruela); }
+.attire-thanks { color: var(--ciruela-claro); font-style: italic; font-size: .95rem; }
+@media (max-width: 420px) { .attire-grid { gap: 9px; } .attire-item { padding: 16px 8px; } .parents-cover { margin-top: 10px !important; } }
+
 </style>
 </head>
 <body>
@@ -419,6 +447,7 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
     <div class="script">Mis quince años</div>
     <h1>Shaira<br>Valentina</h1>
     <p>Con mucha ilusión, quiero compartir contigo uno de los días más especiales de mi vida.</p>
+    <p class="parents-cover"><span>Con el amor de mis padres</span><strong>Jesús Javier Quintero<br>y Asbleidy Otero</strong></p>
     <button class="envelope-trigger" id="openInvite" type="button" aria-label="Abrir la invitación de Shaira Valentina">
       <span class="envelope" aria-hidden="true">
         <span class="envelope-back"></span>
@@ -451,6 +480,17 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
     <p><strong>Hora:</strong> <span id="eventTime">08:00 P.M.</span></p>
     <p><strong>Lugar:</strong> <span id="eventPlace">Por confirmar</span></p>
     <a class="btn alt" id="mapButton" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+  </section>
+  <section class="attire-section">
+    <div class="eyebrow">Una noche de elegancia y magia</div>
+    <h2>Elegancia para una noche mágica</h2>
+    <p class="attire-intro">Acompáñanos con un atuendo especial para celebrar esta ocasión inolvidable.</p>
+    <div class="attire-grid">
+      <div class="attire-item"><span class="attire-icon" aria-hidden="true">✿</span><h3>Damas</h3><p>Vestido tipo cóctel</p></div>
+      <div class="attire-item"><span class="attire-icon" aria-hidden="true">✦</span><h3>Caballeros</h3><p>Traje formal</p></div>
+    </div>
+    <p class="lilac-note"><strong>El color lila está reservado exclusivamente para nuestra quinceañera, Shaira Valentina.</strong></p>
+    <p class="attire-thanks">Gracias por ayudarnos a hacer de esta noche un recuerdo inolvidable.</p>
   </section>
   <section>
     <h2>Confirma tu asistencia</h2>
