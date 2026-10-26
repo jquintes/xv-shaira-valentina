@@ -98,8 +98,14 @@ const rsvpButton = document.getElementById('rsvpButton');
 mapButton.href = MAP_URL || '#';
 rsvpButton.href = RSVP_URL || '#';
 mapButton.addEventListener('click', e => { if(!MAP_URL){e.preventDefault();alert('Primero agrega el enlace de Google Maps en el archivo index.html.');} });
-rsvpButton.addEventListener('click', e => { if(!RSVP_URL){e.preventDefault();alert('Primero agrega el enlace de Google Forms en el archivo index.html.');} });
+rsvpButton.addEventListener('click', e => {
+  e.preventDefault();
 
+  document.getElementById('confirmacionXV')
+    .scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  document.getElementById('tokenXV').focus();
+});
 document.getElementById('openInvite').addEventListener('click', () => {
   document.getElementById('contenido').classList.remove('hidden');
   document.getElementById('contenido').scrollIntoView({behavior:'smooth'});
