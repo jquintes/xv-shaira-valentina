@@ -40,31 +40,30 @@ button, a { font: inherit; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 48px 24px;
+  padding: 24px 18px;
   position: relative;
   overflow: hidden;
- background-image: url("./Marco%20floral%20dorado%20sobre%20marfil.png");
-background-position: center;
-background-size: cover;
-background-repeat: no-repeat;
+  background-color: var(--marfil);
+  background-image: url("./Marco%20floral%20dorado%20sobre%20marfil.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-/* Desactivar adornos geométricos antiguos */
 .hero::before,
 .hero::after {
   content: none !important;
   display: none !important;
 }
-
 .cover {
-  max-width: 560px;
-  width: 100%;
-  padding: clamp(34px, 6vw, 58px) 26px;
-  border: 1px solid var(--dorado);
-  outline: 1px solid rgba(185,154,98,.42);
-  outline-offset: 7px;
-  border-radius: 230px 230px 22px 22px;
-  background: rgba(255,253,249,.94);
-  box-shadow: 0 22px 65px rgba(84,35,79,.12);
+  width: min(100%, 520px);
+  max-width: 520px;
+  padding: clamp(24px, 4vh, 38px) 24px 30px;
+  border: 1px solid #caa45f;
+  outline: 1px solid rgba(185,154,98,.35);
+  outline-offset: 5px;
+  border-radius: 185px 185px 22px 22px;
+  background: linear-gradient(145deg, rgba(255,253,249,.97), rgba(255,248,241,.95));
+  box-shadow: 0 18px 48px rgba(84,35,79,.10);
   position: relative;
   z-index: 1;
 }
@@ -259,107 +258,21 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
 
 
 
-/* AJUSTE FINAL: portada más compacta y enredaderas florales visibles */
-.hero {
-  min-height: 100svh;
-  padding: 24px 20px;
-}
-
-.cover {
-  max-width: 500px;
-  padding: clamp(25px, 4vh, 40px) 24px;
-  border-radius: 185px 185px 22px 22px;
-  outline-offset: 5px;
-}
-
-.cover .big15 {
-  margin: 10px 0;
-  font-size: clamp(3.4rem, 7vw, 4.3rem);
-}
-
-.cover h1 {
-  font-size: clamp(2.45rem, 7vw, 4rem);
-  line-height: 1.02;
-  margin: 12px 0 16px;
-}
-
-.cover .script { margin: 8px 0; }
-.cover p { margin: 12px auto; }
-.cover .btn { margin: 12px 5px 8px; }
-
-/* Enredaderas botánicas: trazos curvos, hojas y pequeñas flores */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  width: clamp(105px, 15vw, 175px);
-  height: clamp(135px, 19vw, 205px);
-  opacity: .92;
-  pointer-events: none;
-  border: 0;
-  border-radius: 0;
-  transform: none;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 0;
-}
-
-.hero::before {
-  top: 12px;
-  left: 10px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 220'%3E%3Cg fill='none' stroke='%23b99a62' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M8 5 C40 35 20 60 48 78 S72 120 46 145 S40 185 66 213'/%3E%3Cpath d='M27 39 Q60 33 66 10 M37 66 Q8 68 9 94 M54 91 Q86 79 94 55 M57 125 Q24 118 16 144 M49 157 Q79 155 91 132 M56 190 Q28 184 25 207'/%3E%3C/g%3E%3Cg fill='%23cbb27d' stroke='%23b99a62' stroke-width='1'%3E%3Cellipse cx='48' cy='24' rx='7' ry='16' transform='rotate(42 48 24)'/%3E%3Cellipse cx='17' cy='81' rx='7' ry='16' transform='rotate(-52 17 81)'/%3E%3Cellipse cx='78' cy='70' rx='7' ry='16' transform='rotate(48 78 70)'/%3E%3Cellipse cx='29' cy='132' rx='7' ry='16' transform='rotate(-48 29 132)'/%3E%3Cellipse cx='75' cy='145' rx='7' ry='16' transform='rotate(48 75 145)'/%3E%3Cellipse cx='37' cy='195' rx='7' ry='16' transform='rotate(-48 37 195)'/%3E%3C/g%3E%3Cg fill='%23d8bfd9' stroke='%23b99a62' stroke-width='1'%3E%3Ccircle cx='96' cy='45' r='5'/%3E%3Ccircle cx='102' cy='38' r='5'/%3E%3Ccircle cx='109' cy='45' r='5'/%3E%3Ccircle cx='102' cy='52' r='5'/%3E%3Ccircle cx='102' cy='45' r='3' fill='%23b99a62'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.hero::after {
-  right: 10px;
-  bottom: 8px;
-  transform: rotate(180deg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 220'%3E%3Cg fill='none' stroke='%23b99a62' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M8 5 C40 35 20 60 48 78 S72 120 46 145 S40 185 66 213'/%3E%3Cpath d='M27 39 Q60 33 66 10 M37 66 Q8 68 9 94 M54 91 Q86 79 94 55 M57 125 Q24 118 16 144 M49 157 Q79 155 91 132 M56 190 Q28 184 25 207'/%3E%3C/g%3E%3Cg fill='%23cbb27d' stroke='%23b99a62' stroke-width='1'%3E%3Cellipse cx='48' cy='24' rx='7' ry='16' transform='rotate(42 48 24)'/%3E%3Cellipse cx='17' cy='81' rx='7' ry='16' transform='rotate(-52 17 81)'/%3E%3Cellipse cx='78' cy='70' rx='7' ry='16' transform='rotate(48 78 70)'/%3E%3Cellipse cx='29' cy='132' rx='7' ry='16' transform='rotate(-48 29 132)'/%3E%3Cellipse cx='75' cy='145' rx='7' ry='16' transform='rotate(48 75 145)'/%3Cellipse cx='37' cy='195' rx='7' ry='16' transform='rotate(-48 37 195)'/%3E%3C/g%3E%3Cg fill='%23d8bfd9' stroke='%23b99a62' stroke-width='1'%3E%3Ccircle cx='96' cy='45' r='5'/%3E%3Ccircle cx='102' cy='38' r='5'/%3E%3Ccircle cx='109' cy='45' r='5'/%3E%3Ccircle cx='102' cy='52' r='5'/%3E%3Ccircle cx='102' cy='45' r='3' fill='%23b99a62'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-@media (max-width: 600px) {
-  .hero { padding: 22px 18px; }
-  .cover {
-    max-width: 430px;
-    padding: 30px 20px;
-    border-radius: 145px 145px 18px 18px;
-  }
-  .hero::before, .hero::after {
-    width: 88px;
-    height: 120px;
-    opacity: .75;
-  }
-}
-
-
-/* PORTADA ORNAMENTAL: composición floral inspirada en la referencia */
+/* Ajustes finales de portada: mantener fondo floral realista y tarjeta compacta */
 .hero {
   min-height: 100svh;
   padding: 24px 18px;
-  background:
-    radial-gradient(ellipse at 10% 12%, rgba(224,201,149,.28), transparent 34%),
-    radial-gradient(ellipse at 92% 88%, rgba(207,158,193,.20), transparent 35%),
-    #fffaf3;
-}
-.hero::before, .hero::after {
-  content: "";
-  position: absolute;
-  width: clamp(145px, 23vw, 285px);
-  height: clamp(165px, 26vw, 300px);
-  opacity: .95;
-  pointer-events: none;
-  border: 0;
-  border-radius: 0;
-  transform: none;
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%20320%20300%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22petal%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23f6dce8%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23a85e91%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22leaf%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23e0c995%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b99a62%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b99a62%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M5%208%20C45%2048%2018%2083%2062%20106%20S95%20160%2068%20189%20S75%20239%20125%20280%22/%3E%3Cpath%20d%3D%22M35%2048%20Q78%2042%2092%2012%20M45%2082%20Q12%2080%208%20113%20M67%20119%20Q112%20100%20123%2073%20M78%20158%20Q37%20145%2024%20176%20M72%20199%20Q116%20192%20135%20160%20M88%20238%20Q52%20232%2043%20263%22/%3E%3C/g%3E%3Cg%20fill%3D%22url(%23leaf)%22%20stroke%3D%22%23b99a62%22%20stroke-width%3D%221.4%22%3E%3Cellipse%20cx%3D%2270%22%20cy%3D%2231%22%20rx%3D%2211%22%20ry%3D%2228%22%20transform%3D%22rotate(42%2070%2031)%22/%3E%3Cellipse%20cx%3D%2219%22%20cy%3D%2298%22%20rx%3D%2210%22%20ry%3D%2225%22%20transform%3D%22rotate(-52%2019%2098)%22/%3E%3Cellipse%20cx%3D%22106%22%20cy%3D%2291%22%20rx%3D%2210%22%20ry%3D%2226%22%20transform%3D%22rotate(45%20106%2091)%22/%3E%3Cellipse%20cx%3D%2237%22%20cy%3D%22160%22%20rx%3D%2210%22%20ry%3D%2225%22%20transform%3D%22rotate(-48%2037%20160)%22/%3E%3Cellipse%20cx%3D%22112%22%20cy%3D%22179%22%20rx%3D%2210%22%20ry%3D%2226%22%20transform%3D%22rotate(48%20112%20179)%22/%3E%3Cellipse%20cx%3D%2256%22%20cy%3D%22246%22%20rx%3D%2210%22%20ry%3D%2225%22%20transform%3D%22rotate(-48%2056%20246)%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%23b99a62%22%20stroke-width%3D%221.4%22%3E%3Cg%20transform%3D%22translate(177%2071)%22%3E%3Cellipse%20cy%3D%22-20%22%20rx%3D%2217%22%20ry%3D%2227%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cy%3D%2220%22%20rx%3D%2217%22%20ry%3D%2227%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cx%3D%22-20%22%20rx%3D%2227%22%20ry%3D%2217%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cx%3D%2220%22%20rx%3D%2227%22%20ry%3D%2217%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cx%3D%22-14%22%20cy%3D%22-14%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(-45%20-14%20-14)%22%20fill%3D%22%23d89abd%22/%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%22-14%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(45%2014%20-14)%22%20fill%3D%22%23e8b7d0%22/%3E%3Cellipse%20cx%3D%22-14%22%20cy%3D%2214%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(45%20-14%2014)%22%20fill%3D%22%23c77eaa%22/%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%2214%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(-45%2014%2014)%22%20fill%3D%22%23f0c6d9%22/%3E%3Ccircle%20r%3D%2210%22%20fill%3D%22%23d6ad55%22/%3E%3C/g%3E%3Cg%20transform%3D%22translate(242%20143)%20scale(.66)%22%3E%3Cellipse%20cy%3D%22-20%22%20rx%3D%2217%22%20ry%3D%2227%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cy%3D%2220%22%20rx%3D%2217%22%20ry%3D%2227%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cx%3D%22-20%22%20rx%3D%2227%22%20ry%3D%2217%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cx%3D%2220%22%20rx%3D%2227%22%20ry%3D%2217%22%20fill%3D%22url(%23petal)%22/%3E%3Cellipse%20cx%3D%22-14%22%20cy%3D%22-14%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(-45%20-14%20-14)%22%20fill%3D%22%23d89abd%22/%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%22-14%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(45%2014%20-14)%22%20fill%3D%22%23e8b7d0%22/%3E%3Cellipse%20cx%3D%22-14%22%20cy%3D%2214%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(45%20-14%2014)%22%20fill%3D%22%23c77eaa%22/%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%2214%22%20rx%3D%2216%22%20ry%3D%2224%22%20transform%3D%22rotate(-45%2014%2014)%22%20fill%3D%22%23f0c6d9%22/%3E%3Ccircle%20r%3D%2210%22%20fill%3D%22%23d6ad55%22/%3E%3C/g%3E%3C/g%3E%3Cg%20fill%3D%22%23e0c995%22%20stroke%3D%22%23b99a62%22%20stroke-width%3D%221%22%3E%3Cellipse%20cx%3D%22137%22%20cy%3D%22112%22%20rx%3D%228%22%20ry%3D%2220%22%20transform%3D%22rotate(-42%20137%20112)%22/%3E%3Cellipse%20cx%3D%22214%22%20cy%3D%2230%22%20rx%3D%228%22%20ry%3D%2221%22%20transform%3D%22rotate(48%20214%2030)%22/%3E%3Cellipse%20cx%3D%22285%22%20cy%3D%22188%22%20rx%3D%228%22%20ry%3D%2222%22%20transform%3D%22rotate(45%20285%20188)%22/%3E%3Cellipse%20cx%3D%22154%22%20cy%3D%22219%22%20rx%3D%228%22%20ry%3D%2220%22%20transform%3D%22rotate(-35%20154%20219)%22/%3E%3C/g%3E%3C/svg%3E");
+  background-color: var(--marfil);
+  background-image: url("./Marco%20floral%20dorado%20sobre%20marfil.png");
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 0;
 }
-.hero::before { top: 0; left: 0; }
-.hero::after { right: 0; bottom: 0; transform: rotate(180deg); }
+.hero::before,
+.hero::after { content: none !important; display: none !important; }
 .cover {
   width: min(100%, 520px);
+  max-width: 520px;
   padding: clamp(24px, 4vh, 38px) 24px 30px;
   border-radius: 185px 185px 22px 22px;
   border: 1px solid #caa45f;
@@ -377,11 +290,7 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
   margin: 0 auto 7px;
   text-shadow: 0 1px 0 #f2dfb6;
 }
-.cover .big15 {
-  font-size: clamp(3.2rem, 7vw, 4.4rem);
-  margin: 7px 0;
-  text-shadow: 0 1px 0 #f0dfbd;
-}
+.cover .big15 { font-size: clamp(3.2rem, 7vw, 4.4rem); margin: 7px 0; text-shadow: 0 1px 0 #f0dfbd; }
 .cover .script { font-size: clamp(1.2rem, 3vw, 1.5rem); }
 .cover h1 {
   font-family: "Brush Script MT", "Segoe Script", cursive;
@@ -394,9 +303,8 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
 .cover .btn { margin: 10px 5px 7px; }
 .cover .small { letter-spacing: .08em; margin-top: 8px; }
 @media (max-width: 600px) {
-  .hero { padding: 18px 14px; min-height: 100svh; }
+  .hero { padding: 18px 14px; min-height: 100svh; background-position: center; }
   .cover { max-width: 420px; padding: 24px 18px 26px; border-radius: 145px 145px 18px 18px; }
-  .hero::before, .hero::after { width: 105px; height: 135px; opacity: .88; }
 }
 
 </style>
