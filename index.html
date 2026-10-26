@@ -51,20 +51,11 @@ button, a { font: inherit; }
   url("./Marco%20floral%20dorado%20sobre%20marfil.png")
     center / cover no-repeat;
 }
-/* Enredaderas ornamentales dibujadas con CSS */
-.hero::before, .hero::after {
-  content: '';
-  position: absolute;
-  width: 86px;
-  height: 86px;
-  opacity: .72;
-  pointer-events: none;
-  border-color: var(--dorado);
-  background:
-    radial-gradient(ellipse at 28% 25%, #d9c49b 0 5px, transparent 6px),
-    radial-gradient(ellipse at 44% 38%, #d9c49b 0 4px, transparent 5px),
-    radial-gradient(ellipse at 62% 48%, #d9c49b 0 5px, transparent 6px),
-    radial-gradient(ellipse at 38% 62%, #d9c49b 0 4px, transparent 5px);
+/* Desactivar adornos geométricos antiguos */
+.hero::before,
+.hero::after {
+  content: none !important;
+  display: none !important;
 }
 .hero::before {
   top: 22px; left: 22px;
