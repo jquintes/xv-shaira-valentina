@@ -34,6 +34,294 @@ p{line-height:1.7}
 footer{text-align:center;padding:30px 18px;color:#785e80}
 .hidden{display:none}
 @media(prefers-reduced-motion:no-preference){.cover{animation:appear 1.2s ease both}@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
+
+/* =========================================
+   XV SHAIRA VALENTINA
+   Diseño: lujo elegante y flores
+   Solo presentación visual
+   ========================================= */
+
+:root {
+  --marfil: #fffaf3;
+  --marfil-profundo: #f6eee5;
+  --ciruela: #54234f;
+  --ciruela-claro: #75466f;
+  --dorado: #b99a62;
+  --dorado-suave: #dfc99f;
+  --lavanda: #eee4f1;
+  --texto: #493a45;
+  --blanco: #ffffff;
+}
+
+/* Fondo general */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(223, 201, 159, 0.22),
+      transparent 36%
+    ),
+    radial-gradient(
+      ellipse at 100% 18%,
+      rgba(205, 180, 211, 0.22),
+      transparent 34%
+    ),
+    radial-gradient(
+      ellipse at 0% 75%,
+      rgba(223, 201, 159, 0.15),
+      transparent 32%
+    ),
+    var(--marfil) !important;
+
+  color: var(--texto);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+/* Marco botánico decorativo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 10px;
+  border: 1px solid rgba(185, 154, 98, 0.38);
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mantener el contenido por encima del fondo */
+body > * {
+  position: relative;
+}
+
+/* Tarjetas de contenido */
+section:not(.hidden) {
+  position: relative;
+  overflow: hidden;
+  margin: 28px auto;
+  padding: clamp(24px, 5vw, 48px);
+  max-width: 920px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(185, 154, 98, 0.38);
+  border-radius: 22px;
+  box-shadow:
+    0 12px 34px rgba(84, 35, 79, 0.07),
+    inset 0 0 0 5px rgba(255, 250, 243, 0.65);
+}
+
+/* Flores abstractas suaves en las esquinas */
+section:not(.hidden)::before {
+  content: "❧";
+  position: absolute;
+  top: 5px;
+  left: 14px;
+  color: var(--dorado);
+  opacity: 0.42;
+  font-size: 34px;
+  pointer-events: none;
+}
+
+section:not(.hidden)::after {
+  content: "❧";
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  color: var(--ciruela-claro);
+  opacity: 0.28;
+  font-size: 34px;
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+/* Títulos */
+h1,
+h2 {
+  color: var(--ciruela);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  line-height: 1.25;
+  letter-spacing: 0.025em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 7vw, 4.2rem);
+}
+
+h2 {
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+p {
+  color: var(--texto);
+}
+
+/* Fecha del evento */
+.date {
+  color: var(--ciruela);
+  font-size: clamp(1.05rem, 3vw, 1.55rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Cuenta regresiva */
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 26px auto;
+}
+
+.countdown .unit {
+  min-width: 76px;
+  padding: 13px 12px;
+  border: 1px solid var(--dorado-suave);
+  border-radius: 15px;
+  background: linear-gradient(
+    145deg,
+    #fffdf9,
+    var(--lavanda)
+  );
+  box-shadow: 0 5px 15px rgba(84, 35, 79, 0.07);
+}
+
+.countdown .unit strong {
+  color: var(--ciruela);
+  font-size: 1.65rem;
+}
+
+.countdown .small {
+  color: var(--ciruela-claro);
+  font-size: 0.85rem;
+}
+
+/* Botones elegantes */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid var(--dorado);
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--ciruela),
+    #70446c
+  );
+  color: var(--blanco) !important;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: 0 5px 14px rgba(84, 35, 79, 0.16);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(84, 35, 79, 0.22);
+}
+
+/* Campos de consulta y confirmación */
+input,
+select,
+textarea {
+  max-width: 100%;
+  border: 1px solid #d9c6d9 !important;
+  border-radius: 10px !important;
+  background: #fffdfb !important;
+  color: var(--texto) !important;
+  padding: 11px 13px !important;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid rgba(185, 154, 98, 0.45);
+  outline-offset: 2px;
+}
+
+/* Separadores */
+hr {
+  border: 0;
+  border-top: 1px solid var(--dorado-suave);
+}
+
+/* Enlaces */
+a:not(.btn) {
+  color: var(--ciruela-claro);
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+  body::before {
+    inset: 5px;
+    border-radius: 12px;
+  }
+
+  section:not(.hidden) {
+    width: auto;
+    margin: 16px 10px;
+    padding: 28px 18px;
+    border-radius: 17px;
+  }
+
+  .countdown {
+    gap: 8px;
+  }
+
+  .countdown .unit {
+    min-width: 60px;
+    padding: 10px 8px;
+  }
+
+  .countdown .unit strong {
+    font-size: 1.35rem;
+  }
+
+  .btn {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+/* Portada de lujo */
+.hero {
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(223, 201, 159, 0.30),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(205, 180, 211, 0.30),
+      transparent 45%
+    ),
+    #fffaf3;
+}
+
+.cover {
+  border: 1px solid #b99a62;
+  outline: 1px solid rgba(185, 154, 98, 0.45);
+  outline-offset: 7px;
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 18px 55px rgba(84, 35, 79, 0.12);
+}
+
+.big15 {
+  color: #b99a62;
+}
+
+.script {
+  color: #75466f;
+}
 </style>
 </head>
 <body>
@@ -316,5 +604,4 @@ consultarBtn.addEventListener('click', () => {
 </body>
 </html>
 
-</body>
-</html>
+
