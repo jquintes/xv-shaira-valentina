@@ -402,7 +402,6 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
   color: #75466f;
   opacity: 0.85;
 }
-
 .music-credit a {
   color: #75466f;
   text-decoration: underline;
@@ -463,18 +462,8 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
     <h2>Una noche para recordar</h2>
     <p>Gracias por ser parte de esta historia. ¡Te esperamos!</p>
     <button class="btn alt" id="musicButton">▶ Activar música</button>
-    
-<p class="music-credit">
-  Música: <strong>You</strong><br>
-  Música de
-  <a href="https://www.fiftysounds.com/"
-     target="_blank"
-     rel="noopener">
-    FiftySounds
-  </a>
-</p>
-
-    <p class="small">La música comienza solo cuando la persona toca el botón, porque los navegadores suelen bloquear la reproducción automática.</p>
+    <p class="music-credit">Música: <strong>You</strong><br>Música de <a href="https://www.fiftysounds.com/" target="_blank" rel="noopener">FiftySounds</a></p>
+    <p class="small">La melodía comienza al abrir el sobre. Puedes pausarla o volver a reproducirla con este botón.</p>
   </section>
   <div class="note"><strong>Antes de publicar:</strong> reemplaza los enlaces de confirmación y ubicación, completa la hora y el lugar, y añade un archivo de música llamado <code>musica.mp3</code> si tienes permiso para usarlo. La página publicada será visible para cualquiera que tenga el enlace.</div>
 </main>
@@ -508,11 +497,25 @@ rsvpButton.addEventListener('click', e => {
 
   document.getElementById('tokenXV').focus();
 });
+const music = document.getElementById('bgMusic');
+const musicButton = document.getElementById('musicButton');
+
+function updateMusicButton() {
+  musicButton.textContent = music.paused ? '▶ Activar música' : '❚❚ Pausar música';
+}
+
+// El clic del sobre abre la invitación e intenta iniciar la música en la misma interacción.
 document.getElementById('openInvite').addEventListener('click', () => {
   const sobre = document.getElementById('openInvite');
   if (sobre.classList.contains('is-opening')) return;
   sobre.classList.add('is-opening');
   sobre.disabled = true;
+
+  music.play().then(updateMusicButton).catch(() => {
+    // Si el navegador o el archivo bloquean la reproducción, el botón inferior seguirá disponible.
+    updateMusicButton();
+  });
+
   window.setTimeout(() => {
     document.getElementById('contenido').classList.remove('hidden');
     document.getElementById('contenido').scrollIntoView({behavior:'smooth', block:'start'});
@@ -531,14 +534,21 @@ function updateCountdown(){
   document.getElementById('seconds').textContent=s;
 }
 updateCountdown(); setInterval(updateCountdown,1000);
-const music = document.getElementById('bgMusic');
-const musicButton = document.getElementById('musicButton');
 musicButton.addEventListener('click', async () => {
   try {
-    if(music.paused){await music.play();musicButton.textContent='❚❚ Pausar música';}
-    else {music.pause();musicButton.textContent='▶ Activar música';}
-  } catch(e) { alert('Añade musica.mp3 al repositorio y vuelve a intentarlo.'); }
+    if (music.paused) {
+      await music.play();
+    } else {
+      music.pause();
+    }
+    updateMusicButton();
+  } catch(e) {
+    alert('No se pudo reproducir la música. Verifica que musica.mp3 esté subido correctamente al repositorio.');
+  }
 });
+
+music.addEventListener('play', updateMusicButton);
+music.addEventListener('pause', updateMusicButton);
 </script>
 
 <section id="confirmacionXV" class="hidden" style="max-width:520px auto;padding:24px;background:#fffaf3;border:1px solid #d6ad55;border-radius:20px;text-align:center;">
