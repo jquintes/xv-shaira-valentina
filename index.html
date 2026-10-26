@@ -396,6 +396,20 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
   .envelope, .envelope-flap, .envelope-letter, .envelope-seal, .envelope-front, .envelope-label { transition-duration: .01ms !important; }
 }
 
+.music-credit {
+  margin-top: 12px;
+  font: 11px/1.7 Arial, sans-serif;
+  color: #75466f;
+  opacity: 0.85;
+}
+
+.music-credit a {
+  color: #75466f;
+  text-decoration: underline;
+  text-decoration-color: #b99a62;
+  text-underline-offset: 3px;
+}
+
 </style>
 </head>
 <body>
@@ -449,6 +463,17 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
     <h2>Una noche para recordar</h2>
     <p>Gracias por ser parte de esta historia. ¡Te esperamos!</p>
     <button class="btn alt" id="musicButton">▶ Activar música</button>
+    
+<p class="music-credit">
+  Música: <strong>You</strong><br>
+  Música de
+  <a href="https://www.fiftysounds.com/"
+     target="_blank"
+     rel="noopener">
+    FiftySounds
+  </a>
+</p>
+
     <p class="small">La música comienza solo cuando la persona toca el botón, porque los navegadores suelen bloquear la reproducción automática.</p>
   </section>
   <div class="note"><strong>Antes de publicar:</strong> reemplaza los enlaces de confirmación y ubicación, completa la hora y el lugar, y añade un archivo de música llamado <code>musica.mp3</code> si tienes permiso para usarlo. La página publicada será visible para cualquiera que tenga el enlace.</div>
