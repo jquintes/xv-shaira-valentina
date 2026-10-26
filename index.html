@@ -437,6 +437,35 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
 .attire-thanks { color: var(--ciruela-claro); font-style: italic; font-size: .95rem; }
 @media (max-width: 420px) { .attire-grid { gap: 9px; } .attire-item { padding: 16px 8px; } .parents-cover { margin-top: 10px !important; } }
 
+
+/* Firma discreta del diseño al final de la invitación */
+.creator-signature {
+  margin: 28px auto 16px;
+  padding: 18px 12px 8px;
+  max-width: 440px;
+  text-align: center;
+  border-top: 1px solid rgba(185,154,98,.55);
+  color: #75466f;
+}
+.creator-signature .signature-label {
+  margin: 0 0 5px;
+  font: 10px/1.5 Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.creator-signature .signature-name {
+  margin: 0;
+  color: var(--ciruela);
+  font-size: .9rem;
+  font-weight: 500;
+}
+.creator-signature .signature-note {
+  margin: 5px 0 0;
+  color: #8b7a80;
+  font-size: .75rem;
+  font-style: italic;
+}
+
 </style>
 </head>
 <body>
@@ -765,5 +794,10 @@ consultarBtn.addEventListener('click', () => {
   document.body.appendChild(script);
 });
 </script>
+<footer class="creator-signature" aria-label="Créditos de diseño y desarrollo">
+  <p class="signature-label">Diseño y desarrollo</p>
+  <p class="signature-name">Ing. Jesús Javier Quintero</p>
+  <p class="signature-note">Creado con dedicación y cariño</p>
+</footer>
 </body>
 </html>
