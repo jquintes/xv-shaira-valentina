@@ -307,6 +307,95 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
   .cover { max-width: 420px; padding: 24px 18px 26px; border-radius: 145px 145px 18px 18px; }
 }
 
+
+
+/* Sobre animado para abrir la invitación */
+.envelope-trigger {
+  display: block;
+  width: 210px;
+  margin: 16px auto 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ciruela);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.envelope-trigger:focus-visible { outline: 2px solid var(--dorado); outline-offset: 7px; border-radius: 12px; }
+.envelope {
+  position: relative;
+  display: block;
+  width: 190px;
+  height: 112px;
+  margin: 0 auto;
+  perspective: 700px;
+  filter: drop-shadow(0 8px 9px rgba(84,35,79,.15));
+  transition: transform .25s ease, filter .25s ease;
+}
+.envelope-trigger:hover .envelope { transform: translateY(-3px); filter: drop-shadow(0 12px 12px rgba(84,35,79,.2)); }
+.envelope-back {
+  position: absolute; inset: 0;
+  border: 1px solid #c7a45f;
+  border-radius: 7px;
+  background: linear-gradient(145deg, #fffdf8, #ead9b6);
+}
+.envelope-letter {
+  position: absolute;
+  left: 15px; right: 15px; bottom: 8px;
+  height: 83px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: 1px solid #d7bd83;
+  background: #fffaf2;
+  color: var(--ciruela);
+  line-height: 1.2;
+  box-shadow: 0 1px 5px rgba(84,35,79,.08);
+  transition: transform .8s cubic-bezier(.2,.75,.25,1), z-index 0s .4s;
+}
+.envelope-letter::before { content: '✦'; color: var(--dorado); font-size: 14px; margin-bottom: 3px; }
+.envelope-letter strong { font-size: 15px; font-weight: 400; font-style: italic; }
+.envelope-letter small { margin-top: 3px; font: 9px Arial, sans-serif; letter-spacing: .16em; }
+.envelope-front {
+  position: absolute; inset: 0;
+  border: 1px solid #c7a45f;
+  border-radius: 7px;
+  background: linear-gradient(145deg, #f8edda, #e8d1a4);
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+}
+.envelope-front::before, .envelope-front::after {
+  content: ''; position: absolute; bottom: 0; width: 0; height: 0;
+  border-top: 56px solid transparent;
+}
+.envelope-front::before { left: 0; border-right: 95px solid rgba(255,250,243,.88); }
+.envelope-front::after { right: 0; border-left: 95px solid rgba(255,250,243,.72); }
+.envelope-flap {
+  position: absolute; z-index: 4; top: 0; left: 0; width: 100%; height: 62px;
+  background: linear-gradient(145deg, #fff7e8, #e6d0a5);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: 50% 0;
+  transition: transform .65s ease, z-index 0s .3s;
+  backface-visibility: hidden;
+}
+.envelope-seal {
+  position: absolute; z-index: 5; left: 50%; top: 54px;
+  width: 31px; height: 31px; transform: translate(-50%,-50%);
+  display: grid; place-items: center; border-radius: 50%;
+  border: 1px solid #d8b86e;
+  background: radial-gradient(circle at 35% 30%, #85557e, #54234f 72%);
+  color: #f7e5b7; font-size: 16px;
+  box-shadow: 0 2px 5px rgba(84,35,79,.22);
+  transition: opacity .25s ease, transform .35s ease;
+}
+.envelope-label { display: block; margin-top: 12px; font: 12px Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; color: var(--ciruela); }
+.envelope-hint { display: block; margin-top: 4px; font: 11px Arial, sans-serif; color: var(--ciruela-claro); }
+.envelope-trigger.is-opening .envelope-flap { transform: rotateX(180deg); z-index: 1; }
+.envelope-trigger.is-opening .envelope-letter { transform: translateY(-49px); z-index: 6; }
+.envelope-trigger.is-opening .envelope-seal { opacity: 0; transform: translate(-50%,-50%) scale(.55); }
+.envelope-trigger.is-opening .envelope-front { transition: opacity .5s ease .35s; }
+.envelope-trigger.is-opening .envelope-label { color: var(--dorado); }
+@media (prefers-reduced-motion: reduce) {
+  .envelope, .envelope-flap, .envelope-letter, .envelope-seal, .envelope-front, .envelope-label { transition-duration: .01ms !important; }
+}
+
 </style>
 </head>
 <body>
@@ -317,7 +406,17 @@ footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
     <div class="script">Mis quince años</div>
     <h1>Shaira<br>Valentina</h1>
     <p>Con mucha ilusión, quiero compartir contigo uno de los días más especiales de mi vida.</p>
-    <button class="btn" id="openInvite">Abrir invitación ✨</button>
+    <button class="envelope-trigger" id="openInvite" type="button" aria-label="Abrir la invitación de Shaira Valentina">
+      <span class="envelope" aria-hidden="true">
+        <span class="envelope-back"></span>
+        <span class="envelope-letter"><strong>Shaira Valentina</strong><small>MIS QUINCE AÑOS</small></span>
+        <span class="envelope-front"></span>
+        <span class="envelope-flap"></span>
+        <span class="envelope-seal">✦</span>
+      </span>
+      <span class="envelope-label">Abrir invitación</span>
+      <span class="envelope-hint">Toca el sobre para descubrirla</span>
+    </button>
     <p class="small">SÁBADO 20 DE MARZO DE 2027</p>
   </div>
 </header>
@@ -385,8 +484,14 @@ rsvpButton.addEventListener('click', e => {
   document.getElementById('tokenXV').focus();
 });
 document.getElementById('openInvite').addEventListener('click', () => {
-  document.getElementById('contenido').classList.remove('hidden');
-  document.getElementById('contenido').scrollIntoView({behavior:'smooth'});
+  const sobre = document.getElementById('openInvite');
+  if (sobre.classList.contains('is-opening')) return;
+  sobre.classList.add('is-opening');
+  sobre.disabled = true;
+  window.setTimeout(() => {
+    document.getElementById('contenido').classList.remove('hidden');
+    document.getElementById('contenido').scrollIntoView({behavior:'smooth', block:'start'});
+  }, 950);
 });
 function updateCountdown(){
   let diff = EVENT_DATE.getTime() - Date.now();
