@@ -126,5 +126,23 @@ musicButton.addEventListener('click', async () => {
   } catch(e) { alert('Añade musica.mp3 al repositorio y vuelve a intentarlo.'); }
 });
 </script>
+
+<section id="confirmacionXV" style="max-width:520px;margin:30px auto;padding:24px;background:#fffaf3;border:1px solid #d6ad55;border-radius:20px;text-align:center;">
+  <h2 style="color:#54246e;">Confirma tu asistencia</h2>
+  <p>Nos encantaría compartir contigo este día tan especial.</p>
+
+  <label for="tokenXV">Código de tu invitación</label>
+  <input id="tokenXV" type="text" placeholder="Pega aquí el enlace personal"
+    style="display:block;width:100%;box-sizing:border-box;padding:12px;margin:10px 0;border:1px solid #d6ad55;border-radius:10px;">
+
+  <button id="consultarXV" type="button"
+    style="padding:12px 20px;background:#54246e;color:white;border:0;border-radius:20px;cursor:pointer;">
+    Consultar invitación
+  </button>
+
+  <div id="personasXV" style="margin-top:20px;text-align:left;"></div>
+  <p id="mensajeXV" role="status" aria-live="polite"></p>
+</section>
+
 </body>
 </html>
