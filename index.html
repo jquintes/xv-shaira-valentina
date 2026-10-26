@@ -6,44 +6,10 @@
 <meta name="theme-color" content="#54246e">
 <title>Los XV de Shaira Valentina</title>
 <style>
-:root{--lila:#eadcf7;--morado:#54246e;--oro:#d6ad55;--crema:#fffaf3;--texto:#382542}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--crema);color:var(--texto)}
-button,a{font:inherit}
-.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px 18px;background:radial-gradient(circle at top,#fff 0,#f5eafb 42%,#e2ccef 100%);position:relative;overflow:hidden}
-.hero:before,.hero:after{content:"✦";position:absolute;color:#d6ad55;font-size:40px;opacity:.7}
-.hero:before{top:8%;left:10%}.hero:after{right:11%;bottom:10%}
-.cover{max-width:520px;width:100%;padding:36px 22px;border:1px solid var(--oro);outline:1px solid #d6ad5577;outline-offset:8px;border-radius:180px 180px 18px 18px;background:#fff9f2d9;box-shadow:0 18px 55px #5b2c6c20}
-.eyebrow{letter-spacing:.22em;text-transform:uppercase;font:12px Arial,sans-serif;color:var(--morado)}
-h1{font-weight:400;color:var(--morado);font-size:clamp(2.6rem,10vw,4.8rem);line-height:1.02;margin:18px 0}
-.script{font-style:italic;color:#8c5ba2;font-size:1.3rem}
-.big15{font-size:4.5rem;color:var(--oro);line-height:1;margin:16px}
-.btn{display:inline-block;border:0;border-radius:999px;padding:13px 22px;background:var(--morado);color:#fff;text-decoration:none;cursor:pointer;margin:8px 5px}
-.btn.alt{background:transparent;color:var(--morado);border:1px solid var(--morado)}
-main{max-width:850px;margin:auto;padding:26px 18px 60px}
-section{padding:40px 12px;text-align:center;border-bottom:1px solid #e8d9e9}
-h2{font-size:2rem;font-weight:400;color:var(--morado);margin:0 0 14px}
-p{line-height:1.7}
-.date{font-size:1.4rem;color:var(--morado)}
-.countdown{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0}
-.unit{min-width:68px;padding:13px 9px;background:#f0e4f6;border:1px solid #ddc4e8;border-radius:12px}
-.unit strong{display:block;font-size:1.7rem;color:var(--morado)}
-.small{font:13px Arial,sans-serif}
-.note{font:13px Arial,sans-serif;background:#fff4d8;padding:12px;border-radius:10px;text-align:left;line-height:1.5}
-footer{text-align:center;padding:30px 18px;color:#785e80}
-.hidden{display:none}
-@media(prefers-reduced-motion:no-preference){.cover{animation:appear 1.2s ease both}@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
-
-/* =========================================
-   XV SHAIRA VALENTINA
-   Diseño: lujo elegante y flores
-   Solo presentación visual
-   ========================================= */
 
 :root {
   --marfil: #fffaf3;
-  --marfil-profundo: #f6eee5;
+  --marfil-claro: #fffdf9;
   --ciruela: #54234f;
   --ciruela-claro: #75466f;
   --dorado: #b99a62;
@@ -53,275 +19,174 @@ footer{text-align:center;padding:30px 18px;color:#785e80}
   --blanco: #ffffff;
 }
 
-/* Fondo general */
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  background:
-    radial-gradient(
-      ellipse at 0% 0%,
-      rgba(223, 201, 159, 0.22),
-      transparent 36%
-    ),
-    radial-gradient(
-      ellipse at 100% 18%,
-      rgba(205, 180, 211, 0.22),
-      transparent 34%
-    ),
-    radial-gradient(
-      ellipse at 0% 75%,
-      rgba(223, 201, 159, 0.15),
-      transparent 32%
-    ),
-    var(--marfil) !important;
-
+  margin: 0;
   color: var(--texto);
-  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(223,201,159,.22), transparent 36%),
+    radial-gradient(ellipse at 100% 18%, rgba(205,180,211,.22), transparent 34%),
+    var(--marfil);
+  font-family: Georgia, 'Times New Roman', serif;
   line-height: 1.7;
 }
+button, a { font: inherit; }
 
-/* Marco botánico decorativo */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 10px;
-  border: 1px solid rgba(185, 154, 98, 0.38);
-  border-radius: 18px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Mantener el contenido por encima del fondo */
-body > * {
+/* Portada */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
   position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(223,201,159,.32), transparent 42%),
+    radial-gradient(ellipse at 100% 100%, rgba(205,180,211,.35), transparent 45%),
+    var(--marfil);
+}
+.hero::before, .hero::after {
+  content: '❧';
+  position: absolute;
+  color: var(--dorado);
+  opacity: .58;
+  font-size: clamp(42px, 8vw, 76px);
+  pointer-events: none;
+}
+.hero::before { top: 4%; left: 5%; transform: rotate(-28deg); }
+.hero::after { right: 5%; bottom: 4%; transform: rotate(152deg); }
+.cover {
+  max-width: 560px;
+  width: 100%;
+  padding: clamp(34px, 6vw, 58px) 26px;
+  border: 1px solid var(--dorado);
+  outline: 1px solid rgba(185,154,98,.42);
+  outline-offset: 7px;
+  border-radius: 230px 230px 22px 22px;
+  background: rgba(255,253,249,.94);
+  box-shadow: 0 22px 65px rgba(84,35,79,.12);
+  position: relative;
+  z-index: 1;
+}
+.eyebrow {
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font: 12px/1.6 Arial, sans-serif;
+  color: var(--ciruela-claro);
+}
+h1 {
+  margin: 18px 0;
+  color: var(--ciruela);
+  font-size: clamp(2.6rem, 10vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.04;
+}
+h2 {
+  margin: 0 0 18px;
+  color: var(--ciruela);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.25;
+  font-weight: 400;
+}
+p { line-height: 1.75; }
+.script { color: var(--ciruela-claro); font-style: italic; font-size: 1.35rem; }
+.big15 { color: var(--dorado); font-size: clamp(3.5rem, 10vw, 5rem); line-height: 1; margin: 18px; }
+.date { color: var(--ciruela); font-size: clamp(1.05rem, 3vw, 1.55rem); letter-spacing: .04em; font-weight: 600; }
+.small { font: 13px/1.5 Arial, sans-serif; }
+
+/* Botones: contraste legible en todos los estados */
+.btn {
+  display: inline-block;
+  margin: 8px 5px;
+  padding: 13px 24px;
+  border: 1px solid var(--dorado);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--ciruela), #70446c);
+  color: var(--blanco) !important;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(84,35,79,.16);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(84,35,79,.22); }
+.btn.alt {
+  color: var(--ciruela) !important;
+  background: var(--marfil-claro);
+  border: 1px solid var(--dorado);
 }
 
-/* Tarjetas de contenido */
+/* Contenido y tarjetas */
+main { max-width: 1000px; margin: 0 auto; padding: 26px 18px 56px; }
 section:not(.hidden) {
   position: relative;
   overflow: hidden;
-  margin: 28px auto;
-  padding: clamp(24px, 5vw, 48px);
-  max-width: 920px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(185, 154, 98, 0.38);
-  border-radius: 22px;
-  box-shadow:
-    0 12px 34px rgba(84, 35, 79, 0.07),
-    inset 0 0 0 5px rgba(255, 250, 243, 0.65);
+  margin: 24px auto;
+  padding: clamp(28px, 5vw, 48px) clamp(18px, 4vw, 40px);
+  text-align: center;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(185,154,98,.42);
+  border-radius: 24px;
+  box-shadow: 0 12px 34px rgba(84,35,79,.07), inset 0 0 0 5px rgba(255,250,243,.55);
 }
-
-/* Flores abstractas suaves en las esquinas */
-section:not(.hidden)::before {
-  content: "❧";
-  position: absolute;
-  top: 5px;
-  left: 14px;
-  color: var(--dorado);
-  opacity: 0.42;
-  font-size: 34px;
-  pointer-events: none;
-}
-
+section:not(.hidden)::before,
 section:not(.hidden)::after {
-  content: "❧";
   position: absolute;
-  right: 14px;
-  bottom: 0;
-  color: var(--ciruela-claro);
-  opacity: 0.28;
-  font-size: 34px;
-  transform: rotate(180deg);
+  color: var(--dorado);
+  opacity: .42;
+  font-size: 30px;
   pointer-events: none;
 }
-
-/* Títulos */
-h1,
-h2 {
-  color: var(--ciruela);
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: normal;
-  line-height: 1.25;
-  letter-spacing: 0.025em;
-}
-
-h1 {
-  font-size: clamp(2.2rem, 7vw, 4.2rem);
-}
-
-h2 {
-  font-size: clamp(1.65rem, 4vw, 2.5rem);
-  text-align: center;
-  margin-bottom: 22px;
-}
-
-p {
-  color: var(--texto);
-}
-
-/* Fecha del evento */
-.date {
-  color: var(--ciruela);
-  font-size: clamp(1.05rem, 3vw, 1.55rem);
-  letter-spacing: 0.06em;
-  text-align: center;
-  font-weight: 600;
-}
+section:not(.hidden)::before { content: '❧'; top: 7px; left: 14px; }
+section:not(.hidden)::after { content: '❧'; right: 14px; bottom: 0; transform: rotate(180deg); color: var(--ciruela-claro); opacity: .28; }
 
 /* Cuenta regresiva */
-.countdown {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin: 26px auto;
-}
-
-.countdown .unit {
+.countdown { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 26px auto; }
+.unit {
   min-width: 76px;
   padding: 13px 12px;
   border: 1px solid var(--dorado-suave);
-  border-radius: 15px;
-  background: linear-gradient(
-    145deg,
-    #fffdf9,
-    var(--lavanda)
-  );
-  box-shadow: 0 5px 15px rgba(84, 35, 79, 0.07);
+  border-radius: 16px;
+  background: linear-gradient(145deg, var(--marfil-claro), var(--lavanda));
+  box-shadow: 0 5px 15px rgba(84,35,79,.07);
 }
+.unit strong { display: block; color: var(--ciruela); font-size: 1.65rem; }
+.unit .small { color: var(--ciruela-claro); }
 
-.countdown .unit strong {
-  color: var(--ciruela);
-  font-size: 1.65rem;
-}
-
-.countdown .small {
-  color: var(--ciruela-claro);
-  font-size: 0.85rem;
-}
-
-/* Botones elegantes */
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border: 1px solid var(--dorado);
-  border-radius: 30px;
-  background: linear-gradient(
-    135deg,
-    var(--ciruela),
-    #70446c
-  );
-  color: var(--blanco) !important;
-  text-decoration: none;
-  font-family: inherit;
-  font-size: 1rem;
-  box-shadow: 0 5px 14px rgba(84, 35, 79, 0.16);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(84, 35, 79, 0.22);
-}
-
-/* Campos de consulta y confirmación */
-input,
-select,
-textarea {
+/* Formularios de confirmación */
+input, select, textarea {
   max-width: 100%;
+  padding: 11px 13px !important;
   border: 1px solid #d9c6d9 !important;
   border-radius: 10px !important;
   background: #fffdfb !important;
   color: var(--texto) !important;
-  padding: 11px 13px !important;
-  box-sizing: border-box;
+  font: inherit;
 }
+input:focus, select:focus, textarea:focus { outline: 2px solid rgba(185,154,98,.5); outline-offset: 2px; }
+#confirmacionXV { max-width: 560px; margin: 24px auto; box-shadow: 0 12px 34px rgba(84,35,79,.08); }
+#confirmacionXV button { font: inherit; }
+.note { display: none; }
+footer { text-align: center; padding: 30px 18px; color: var(--ciruela-claro); }
+.hidden { display: none !important; }
 
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 2px solid rgba(185, 154, 98, 0.45);
-  outline-offset: 2px;
+@media (prefers-reduced-motion: no-preference) {
+  .cover { animation: appear 1.1s ease both; }
+  @keyframes appear { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 }
-
-/* Separadores */
-hr {
-  border: 0;
-  border-top: 1px solid var(--dorado-suave);
-}
-
-/* Enlaces */
-a:not(.btn) {
-  color: var(--ciruela-claro);
-}
-
-/* Adaptación para celulares */
 @media (max-width: 600px) {
-  body::before {
-    inset: 5px;
-    border-radius: 12px;
-  }
-
-  section:not(.hidden) {
-    width: auto;
-    margin: 16px 10px;
-    padding: 28px 18px;
-    border-radius: 17px;
-  }
-
-  .countdown {
-    gap: 8px;
-  }
-
-  .countdown .unit {
-    min-width: 60px;
-    padding: 10px 8px;
-  }
-
-  .countdown .unit strong {
-    font-size: 1.35rem;
-  }
-
-  .btn {
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
-/* Portada de lujo */
-.hero {
-  background:
-    radial-gradient(
-      ellipse at top left,
-      rgba(223, 201, 159, 0.30),
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at bottom right,
-      rgba(205, 180, 211, 0.30),
-      transparent 45%
-    ),
-    #fffaf3;
+  .hero { padding: 30px 18px; }
+  .cover { padding: 34px 20px; border-radius: 150px 150px 18px 18px; }
+  main { padding: 16px 10px 38px; }
+  section:not(.hidden) { margin: 16px auto; padding: 30px 17px; border-radius: 18px; }
+  .countdown { gap: 8px; }
+  .unit { min-width: 62px; padding: 10px 8px; }
+  .unit strong { font-size: 1.4rem; }
+  .btn { max-width: 100%; }
 }
 
-.cover {
-  border: 1px solid #b99a62;
-  outline: 1px solid rgba(185, 154, 98, 0.45);
-  outline-offset: 7px;
-  background: rgba(255, 253, 249, 0.94);
-  box-shadow: 0 18px 55px rgba(84, 35, 79, 0.12);
-}
-
-.big15 {
-  color: #b99a62;
-}
-
-.script {
-  color: #75466f;
-}
 </style>
 </head>
 <body>
@@ -333,7 +198,7 @@ a:not(.btn) {
     <h1>Shaira<br>Valentina</h1>
     <p>Con mucha ilusión, quiero compartir contigo uno de los días más especiales de mi vida.</p>
     <button class="btn" id="openInvite">Abrir invitación ✨</button>
-    <p class="small">SABADO 20 DE MARZO DEL 2027</p>
+    <p class="small">SÁBADO 20 DE MARZO DE 2027</p>
   </div>
 </header>
 <main id="contenido" class="hidden">
@@ -341,7 +206,7 @@ a:not(.btn) {
     <div class="eyebrow">Con amor, te invitamos</div>
     <h2>¡Celebra conmigo!</h2>
     <p>Hay momentos que se vuelven inolvidables cuando los compartimos con las personas que queremos. Me encantaría que me acompañaras en esta noche tan especial.</p>
-    <p class="date">SABADO 20 DE MARZO DE 2027</p>
+    <p class="date">SÁBADO 20 DE MARZO DE 2027</p>
     <div class="countdown" aria-label="Cuenta regresiva">
       <div class="unit"><strong id="days">—</strong><span class="small">días</span></div>
       <div class="unit"><strong id="hours">—</strong><span class="small">horas</span></div>
@@ -603,5 +468,3 @@ consultarBtn.addEventListener('click', () => {
 </script>
 </body>
 </html>
-
-
