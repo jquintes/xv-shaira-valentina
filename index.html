@@ -144,5 +144,166 @@ musicButton.addEventListener('click', async () => {
   <p id="mensajeXV" role="status" aria-live="polite"></p>
 </section>
 
+<script>
+const API_XV = 'https://script.google.com/macros/s/AKfycbxTVFGylyXkqSW35Hx0CBWKIbx2tm2xCFf9ESFCqE-LedTCPstRqyYzVLtZ7wvv00VZ/exec';
+
+const tokenInput = document.getElementById('tokenXV');
+const consultarBtn = document.getElementById('consultarXV');
+const personasDiv = document.getElementById('personasXV');
+const mensajeDiv = document.getElementById('mensajeXV');
+
+// Si el enlace contiene ?token=..., rellena el campo automáticamente.
+const tokenEnlace = new URLSearchParams(window.location.search).get('token');
+if (tokenEnlace) tokenInput.value = tokenEnlace;
+
+consultarBtn.addEventListener('click', () => {
+  const token = tokenInput.value.trim();
+  if (!token) {
+    mensajeDiv.textContent = 'Introduce el token de tu invitación.';
+    return;
+  }
+
+  mensajeDiv.textContent = 'Consultando invitación...';
+  personasDiv.replaceChildren();
+
+  const callback = 'respuestaXV_' + Date.now();
+  const script = document.createElement('script');
+  const timeout = setTimeout(() => {
+    limpiar();
+    mensajeDiv.textContent = 'No se pudo consultar. Intenta de nuevo.';
+  }, 15000);
+
+  function limpiar() {
+    clearTimeout(timeout);
+    script.remove();
+    delete window[callback];
+  }
+
+  window[callback] = data => {
+    limpiar();
+
+    if (!data || !data.ok) {
+      mensajeDiv.textContent =
+        data?.mensaje || 'No se encontró la invitación.';
+      return;
+    }
+
+    mensajeDiv.textContent = 'Invitación: ' + data.codigo;
+
+    data.personas.forEach((persona, i) => {
+      const fila = document.createElement('div');
+      fila.style.cssText =
+        'padding:12px 0;border-bottom:1px solid #e5d5bd;';
+
+      const nombre = document.createElement('p');
+      nombre.textContent = persona.nombre + ' (' + persona.tipo + ')';
+      nombre.style.fontWeight = 'bold';
+      fila.appendChild(nombre);
+
+      const estado = document.createElement('p');
+      estado.textContent = 'Estado actual: ' + persona.confirmacion;
+      fila.appendChild(estado);
+
+      ['SI', 'NO'].forEach(opcion => {
+        const etiqueta = document.createElement('label');
+        etiqueta.style.marginRight = '18px';
+
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'respuesta_' + i;
+        radio.value = opcion;
+        radio.checked =
+          (persona.confirmacion === 'SI' && opcion === 'SI') ||
+          (persona.confirmacion === 'NO' && opcion === 'NO');
+
+        etiqueta.appendChild(radio);
+        etiqueta.appendChild(document.createTextNode(
+          opcion === 'SI' ? ' Sí asistiré' : ' No asistiré'
+        ));
+        fila.appendChild(etiqueta);
+      });
+
+      const guardar = document.createElement('button');
+      guardar.type = 'button';
+      guardar.textContent = 'Guardar respuesta';
+      guardar.style.cssText =
+        'display:block;margin-top:10px;padding:9px 14px;' +
+        'background:#54246e;color:white;border:0;border-radius:18px;';
+
+      guardar.addEventListener('click', () => {
+        const seleccionado = fila.querySelector(
+          'input[name="respuesta_' + i + '"]:checked'
+        );
+
+        if (!seleccionado) {
+          mensajeDiv.textContent = 'Selecciona Sí o No para ' +
+            persona.nombre + '.';
+          return;
+        }
+
+        guardar.disabled = true;
+        mensajeDiv.textContent = 'Enviando respuesta...';
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = API_XV;
+        form.target = 'envioXV';
+        form.style.display = 'none';
+
+        const campos = {
+          accion: 'confirmar',
+          token: token,
+          nombre: persona.nombre,
+          confirmacion: seleccionado.value
+        };
+
+        Object.entries(campos).forEach(([clave, valor]) => {
+          const input = document.createElement('input');
+          input.name = clave;
+          input.value = valor;
+          form.appendChild(input);
+        });
+
+        let iframe = document.getElementById('envioXV');
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.name = 'envioXV';
+          iframe.id = 'envioXV';
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+
+        mensajeDiv.textContent =
+          'Solicitud enviada. Vuelve a consultar la invitación ' +
+          'para comprobar el estado actualizado.';
+        setTimeout(() => {
+          form.remove();
+          guardar.disabled = false;
+        }, 1500);
+      });
+
+      fila.appendChild(guardar);
+      personasDiv.appendChild(fila);
+    });
+  };
+
+  script.onerror = () => {
+    limpiar();
+    mensajeDiv.textContent = 'No se pudo conectar con Apps Script.';
+  };
+
+  script.src = API_XV +
+    '?accion=consultar&token=' + encodeURIComponent(token) +
+    '&callback=' + callback;
+
+  document.body.appendChild(script);
+});
+</script>
+</body>
+</html>
+
 </body>
 </html>
